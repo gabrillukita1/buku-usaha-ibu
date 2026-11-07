@@ -14,9 +14,6 @@ export default function Sidebar({ active, onChange }) {
         <p className="mb-3 px-3 text-[11px] font-bold tracking-[0.18em] text-white/40">MENU</p>
         <NavList items={NAV_ITEMS} active={active} onSelect={onChange} icons={icons} />
       </div>
-      <div className="relative mt-auto rounded-app border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-white/70 shadow-[inset_0_1px_0_rgba(255,255,255,.12)] backdrop-blur-md">
-        Catatan tersimpan di cloud, siap dibuka lagi besok.
-      </div>
     </aside>
   )
 }

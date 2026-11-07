@@ -51,7 +51,7 @@ export default function HomePage({ onChange }) {
         title={headline}
         description="Angka di bawah mengikuti periode yang dipilih. Upah tetap dihitung untuk minggu berjalan."
         action={
-          <div className="w-full sm:w-auto sm:min-w-[320px]">
+          <div className="w-full sm:w-auto lg:w-96">
             <SegmentedControl value={period} onChange={setPeriod} options={PERIODS} />
           </div>
         }
