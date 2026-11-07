@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import Header from './components/Header.jsx'
-import BrambangModule from './modules/BrambangModule.jsx'
-import SupplierModule from './modules/SupplierModule.jsx'
+import { useState } from "react"
+import AppShell from "./components/layout/AppShell.jsx"
+import { ToastProvider } from "./components/ui.jsx"
+import BrambangModule from "./modules/brambang/BrambangModule.jsx"
+import HomePage from "./modules/home/HomePage.jsx"
+import SupplierModule from "./modules/supplier/SupplierModule.jsx"
 
 export default function App() {
-  const [moduleId, setModuleId] = useState('bg')
-
+  const [page, setPage] = useState("home")
   return (
-    <div className={`app mod-${moduleId}`}>
-      <Header moduleId={moduleId} onSwitch={setModuleId} />
-      <main className="main">
-        {moduleId === 'bg' ? <BrambangModule /> : <SupplierModule />}
-      </main>
-    </div>
+    <ToastProvider>
+      <AppShell active={page} onChange={setPage}>
+        {page === "home" ? <HomePage onChange={setPage} /> : page === "bg" ? <BrambangModule /> : <SupplierModule />}
+      </AppShell>
+    </ToastProvider>
   )
 }

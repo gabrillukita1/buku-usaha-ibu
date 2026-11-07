@@ -25,6 +25,22 @@ export const fmtTgl = (s) =>
     month: 'short',
   })
 
+export const fmtTglPanjang = (s) =>
+  new Date(s + 'T00:00:00').toLocaleDateString('id-ID', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
+
+export function greeting(date = new Date()) {
+  const hour = date.getHours()
+  if (hour < 11) return 'Selamat pagi'
+  if (hour < 15) return 'Selamat siang'
+  if (hour < 18) return 'Selamat sore'
+  return 'Selamat malam'
+}
+
 export function weekRange(offset) {
   const now = new Date()
   const day = now.getDay() || 7
